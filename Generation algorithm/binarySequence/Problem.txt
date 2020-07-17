@@ -1,0 +1,16 @@
+Given a positive integer number N. The task is to generate all the binary strings of N bits. 
+These binary strings should be in ascending order.
+
+Input: n ( 1 <= n <= 100)
+Output: all binary sequence of n-length.
+
+Example:
+Input:  3
+Output: 0 0 0 
+	0 0 1
+	0 1 0
+	0 1 1
+	1 0 0
+	1 0 1
+	1 1 0
+	1 1 1

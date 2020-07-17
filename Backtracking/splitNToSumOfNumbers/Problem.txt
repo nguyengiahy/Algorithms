@@ -1,0 +1,19 @@
+Given a positive integer N <= 30, find all possible ways to split N to a sum of positive integers. 
+Permutations are considered as only 1 way.
+
+Input: N, 0 < N <= 30
+Output: all possible ways to split N to a sum of positive integers.
+
+Example:
+Input: N = 6
+Output: 1+1+1+1+1+1
+	1+1+1+1+2
+	1+1+1+3
+	1+1+2+2
+	1+1+4
+	1+2+3
+	1+5
+	2+2+2
+	2+4
+	3+3
+	6

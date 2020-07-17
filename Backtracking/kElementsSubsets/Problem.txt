@@ -1,0 +1,17 @@
+Given N and K. List all possible K-length combinations that made up from elements ranges from 1 to N.
+
+Input: N, K
+Output: all possible K-length combinations that made up from elements ranges from 1 to N.
+
+Example:
+Input: 5 3
+Output: 123
+	124
+	125
+	134
+	135
+	145
+	234
+	235
+	245
+	345
