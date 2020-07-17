@@ -1,0 +1,8 @@
+Given an infix notation, convert it to postfix notation.
+
+Input: an infix notation
+Output: converted postfix notation
+
+Example:
+Input: (10/2 + 3)*(7-4)
+Output: 10 2 / 3 + 7 4 - *

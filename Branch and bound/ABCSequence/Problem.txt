@@ -1,0 +1,12 @@
+Given a positive integer N, find a string of A,B,C that:
+- has length of N.
+- any two adjacent substrings are different.
+- has smallest number of character C.
+
+Input: N <= 100
+Output: a string of A,B,C that meets 3 requirements above.
+
+Example:
+Input: 10
+Output: ABACABCBAB
+	Number of 'C': 2

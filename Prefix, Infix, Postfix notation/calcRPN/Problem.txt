@@ -1,0 +1,9 @@
+Given a RPN (Reverse Polish Notation) a.k.a postfix notation. Calculate the result of that RPN.
+
+Input: A string has less than 255 characters, contains numbers and 4 operations (+, -, *, /). Any two adjacent 
+numbers are seperated by a space.
+Output: Result of that RPN.
+
+Example:
+Input: 10 2/3 + 7 4 -*
+Output: 24
