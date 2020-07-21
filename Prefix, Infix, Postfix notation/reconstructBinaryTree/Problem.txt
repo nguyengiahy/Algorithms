@@ -1,0 +1,13 @@
+Given a postfix notation (PRN notation). Reconstruct a binary tree from it.
+
+Input: 	an postfix notation
+	Rule: space is only allowed between 2 numbers. You cannot put space in between a number and an operation
+	or between an operation and another operation.
+Output: reconstruct binary tree representing the expression.
+
+Example:
+Input: 10 2/3+7 4 -*
+Output: 		*
+		+		-
+	   /	     3     7	      4
+	10   2
