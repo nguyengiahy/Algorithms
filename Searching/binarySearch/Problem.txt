@@ -1,0 +1,23 @@
+Search for a given element in a sorted array.
+
+Input:  number of array elements, n.
+	n numbers for array elements.
+	search value.
+Output: -1 if search value doesn't exist in the array,
+	else the index of that value in the array.
+
+Example:
+Input: 	6
+	4 8 10 7 5 3
+	5
+Output: Sorted array:
+	3 4 5 7 8 10
+	2
+
+Example 2:
+Input: 	6
+	4 8 10 7 5 3
+	9
+Output: Sorted array:
+	3 4 5 7 8 10
+	-1
