@@ -1,4 +1,5 @@
-#include<iostream>
+#include <iostream>
+#include <algorithm>
 using namespace std;
 
 const int MAX = 1000;
@@ -10,118 +11,130 @@ private:
 	int fValue;
 	BST* fLeft;
 	BST* fRight;
-	BST()						//Default constructor for sentinel
+	BST()							//Default constructor for sentinel
 	{
 		fValue = int();
 		fLeft = &NIL;
 		fRight = &NIL;
 	}
 public:
-	static BST NIL;				//Sentinel
-	BST(const int& aValue)		//Constructor with a value passed in
+	static BST NIL;					//Sentinel
+	BST(int aValue)					//Constructor with a value passed in
 	{
 		fValue = aValue;
 		fLeft = &NIL;
 		fRight = &NIL;
 	}
-	
-	bool isEmpty()				//Check if this is an empty node
-	{
-		return this == &NIL;
-	}
-	
-	const int& getValue()		//Return node's value
+	int getValue()					//Return node's value
 	{
 		return fValue;
 	}
-
-	// Insert function
-	BST* insert(BST* root, int aValue)
+	void insert(int key)			// Insert function
 	{
-		// If root is NIL, insert the first node
-		if (root->isEmpty())
-			return new BST(aValue);
-
-		if (aValue < root->fValue)
-			root->fLeft = insert(root->fLeft, aValue);
-		else
-			root->fRight = insert(root->fRight, aValue);
-
-		// Return 'root' node, after insertion. 
-		return root;
-	}
-
-	// Inorder traversal function. Traverse BST inorder will give data in sorted order
-	void inorder(BST* root)
-	{
-		if (root->isEmpty())
-			return;
-		inorder(root->fLeft);
-		cout << root->fValue << " ";
-		inorder(root->fRight);
-	}
-
-	// Find the smallest node in the right subtree
-	BST* getSmallestNode(BST* aNode)
-	{
-		BST* current = aNode;
-		/* loop down to find the leftmost leaf */
-		while (!current->isEmpty() && !current->fLeft->isEmpty())
-			current = current->fLeft;
-
-		return current;
-	}
-
-	// Delete a node has same value with key, and returns a new root
-	BST* deleteNode(BST* root, int key)
-	{
-		// If this tree is empty, we cannot delete anything
-		if (root->isEmpty())
-			return root;
-
-		// First, we need to find the node to be deleted
-		// If the key to be deleted is smaller than the root's key, then it is in the left subtree
-		if (key < root->getValue())			
-			root->fLeft = deleteNode(root->fLeft, key);
-		// If the key to be deleted is greater than the root's key, then it is in the right subtree
-		else if (key > root->getValue())
-			root->fRight = deleteNode(root->fRight, key);
-		// If this node is the node to be deleted
-		else
+		// First, find a position where key can be inserted
+		BST* parent = &NIL;
+		BST* child = this;			// "this" is the tree root.
+		while (child != &NIL)
 		{
-			/*There are 3 cases:
-			  - deleted node is leaf: just simply remove the node
-			  - deleted node has only 1 child: make connection between grandparent and child, delete the parent node.
-			  - deleted node has 2 children: find the smallest node on the right side and replace it to the deleted node.
-			 */
-
-			// Node with 1 child or 2 children
-			if (root->fLeft->isEmpty())		// No left child
-			{
-				BST* temp = root->fRight;
-				delete root;
-				return temp;
-			}
-			else if (root->fRight->isEmpty())	// No right child
-			{
-				BST* temp = root->fLeft;
-				delete root;
-				return temp;
-			}
-
-			// Node with 2 children
-			// Get the smallest node on the right subtree
-			BST* temp = getSmallestNode(root->fRight);
-			// Replace it with the root node
-			root->fValue = temp->fValue;
-			// Delete the replaced node
-			root->fRight = deleteNode(root->fRight, temp->fValue);
+			parent = child;
+			if (child->fValue == key)		// If key already exists in the tree, then stop.
+				break;
+			else if (child->fValue > key)
+				child = child->fLeft;
+			else
+				child = child->fRight;
 		}
 
-		return root;
+		if (child == &NIL)					// If key doesn't exist in the tree, we can insert it.
+		{
+			child = new BST(key);
+			if (parent->fValue > key)
+				parent->fLeft = child;
+			else
+				parent->fRight = child;
+		}
+	}
+	void inorder()					// If we get an ascending order when using inorder traversal, it means the BST is built correctly.
+	{
+		if (this == &NIL)
+			return;
+		this->fLeft->inorder();
+		cout << fValue << " ";
+		this->fRight->inorder();
+	}
+	BST* search(int key)			// Search on BST
+	{
+		BST* temp = this;					// "this" is the tree root
+		while (temp != &NIL)
+		{
+			if (temp->fValue == key)		// If found, break the loop.
+				break;
+			else if (temp->fValue > key)
+				temp = temp->fLeft;
+			else
+				temp = temp->fRight;
+		}
+		return temp;
+	}
+	void deleteNode(int key)		// Delete function
+	{
+		// First, we need to find the position of the node to be deleted
+		BST* parent = &NIL;
+		BST* child = this;
+		while (child != &NIL)
+		{
+			if (child->fValue == key)
+				break;
+			parent = child;
+			if (child->fValue > key)
+				child = child->fLeft;
+			else
+				child = child->fRight;
+		}
+
+		if (child == &NIL)		// The node to be deleted doesn't exist in the tree
+			return;
+
+		// If the node to be deleted exists in the tree
+		if (child->fLeft != &NIL && child->fRight != &NIL)	// Case 1: the deleted node has 2 children
+		{
+			// Find the biggest element in the left subtree
+			BST* tempParent = child;			// parent node of tempChild
+			BST* tempChild = child->fLeft;		// tempChild is the biggest element in the left subtree
+			while (tempChild->fRight != &NIL)
+			{
+				tempParent = tempChild;
+				tempChild = tempChild->fRight;
+			}
+
+			child->fValue = tempChild->fValue;	// copy the value of tempChild 
+			if (tempParent->fLeft == tempChild)	// delete the connection
+				tempParent->fLeft = &NIL;
+			else
+				tempParent->fRight = &NIL;
+			delete tempChild;					// delete the node
+		}
+
+		else if (child->fLeft != &NIL)			// Case 2: the deleted node has left child only
+		{
+			parent->fLeft = child->fLeft;
+			delete child;
+		}
+		else if (child->fRight != &NIL)			// Case 2: the deleted node has right child only
+		{
+			parent->fRight = child->fRight;
+			delete child;
+		}
+		else									// Case 3: the deleted node doesn't have any child
+		{
+			if (parent->fLeft == child)
+				parent->fLeft = &NIL;
+			else
+				parent->fRight = &NIL;
+			delete child;
+		}
 	}
 };
-//Sentinel 
 BST BST::NIL;
 
 int main()
@@ -131,24 +144,30 @@ int main()
 	for (int i = 0; i < n; i++)
 		cin >> arr[i];
 
-	// Build a BST
-	BST tree = BST::NIL;
-	BST* root = &BST::NIL;
-	root = tree.insert(root, arr[0]);
+	// Build BST
+	BST* tree = new BST(arr[0]);
 	for (int i = 1; i < n; i++)
-		tree.insert(root, arr[i]);
-
-	// Display nodes
-	tree.inorder(root);
+		tree->insert(arr[i]);
+	cout << "Tree root: " << tree->getValue() << endl;
+	tree->inorder();
 	cout << endl;
 
-	// Delete node
-	int x;
-	cout << "Value you want to delete: ";
-	cin >> x;
-	root = tree.deleteNode(root, x);
-	cout << "Inorder traversal of the modified tree: " << endl;
-	tree.inorder(root);
+	// Search on BST
+	int key;
+	cout << "Search value: ";
+	cin >> key;
+	BST* search = tree->search(key);
+	if (search == &BST::NIL)
+		cout << -1 << endl;
+	else
+		cout << search->getValue() << " is found." << endl;
+
+	// Delete on BST
+	cout << "Value to be deleted: ";
+	cin >> key;
+	tree->deleteNode(key);
+	cout << "Tree root after modified: " << tree->getValue() << endl;
+	tree->inorder();
 
 	return 0;
 }
