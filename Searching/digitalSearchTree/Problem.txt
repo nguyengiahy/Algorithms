@@ -1,0 +1,18 @@
+Build a digital search tree (DST) from a given array and perform search, delete functionalities.
+
+Input: 	n.
+	n array elements.
+	A key that you want to search for.
+	A key that you want to delete.
+Output: DST inorder traversal.
+	-1 if search key doesn't exist in the tree, else "searchKey is found.".
+	DST inorder traversal after a key is deleted.
+
+Example:
+Input: 	9
+	6 5 2 7 8 10 12 11 4.
+	Search value: 11
+	Value to be deleted: 8
+Output: 2 5 4 7 6 10 11 8 12
+	11 is found.
+	2 5 4 7 6 10 11 12
