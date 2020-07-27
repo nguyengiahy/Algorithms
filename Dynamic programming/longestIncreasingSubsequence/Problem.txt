@@ -1,0 +1,15 @@
+Given an array A[1..n] (n <= 10^6, -10^6 <= a[i] <= 10^6).
+Find the longest increasing subsequence of that array.
+
+Input: 
+- first line: n
+- second line: a[1], a[2],..., a[n]. Seperated by a space.
+Output:
+- first line: length of the longest increasing subsequence.
+- second line: elements of that subsequence.
+
+Example:
+Input: 	11
+	1 2 3 8 9 4 5 6 20 9 10
+Output: 8
+	1 2 3 4 5 6 9 10
