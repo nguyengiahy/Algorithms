@@ -1,0 +1,21 @@
+Given two strings str1 and str2 and 3 operations below that can performed on str1:
+- insert(i,'c'): insert character 'c' to str1 at the position after i.
+- replace(i, 'c'): replace character at index i in str1 by character 'c'.
+- delete(i): delete character at index i in str1.
+Find minimum number of edits (operations) required to convert str1 into str2 and list those operations.
+
+Input: 	str1 and str2.
+Output: Minimum number of operations to convert str1 to str2.
+	List all of the operations.
+
+Example:
+Input:	PBBCEFATZ
+	QABCDABEFA
+Output: 7
+	Delete(9)
+	Delete(8)
+	Insert(4, B)
+	Insert(4, A)
+	Insert(4, D)
+	Replace(2, A)
+	Replace(1, Q)

@@ -1,0 +1,18 @@
+Given weights (W[i] <= 100) and values (V[i] <= 100) of N (N <= 100) items, find a way to put these items in a knapsack of capacity M (M <= 100) to get the highest value in the knapsack.
+
+Input: 
+- first line: N, M. Seperated by a space.
+- N following lines: W[i], V[i] which are weight and value of item i.
+Output:
+- first line: maximum value can get.
+- second line: index of the items in the knapsack.
+
+Example:
+Input:	5 11
+	3 3
+	4 4
+	5 4
+	9 10
+	4 4
+Output: 11
+	5 2 1
