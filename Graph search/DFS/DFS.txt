@@ -1,0 +1,24 @@
+Given a graph with N vertices, M edges, start point s, finish point f. Find all vertices that can be visited 
+from s, and the path from s to f.
+
+Input:
+- first line: N(<=100), M, s, f
+- following M lines: each line contains 2 positive integers u and v, represents a connection between u and v in
+the graph.
+Output:
+- list of vertices can be visited from s.
+- path from s to f.
+
+Example:
+Input: 	8 7 1 5
+	1 2
+	1 3
+	2 3
+	2 4
+	3 5
+	4 6
+	7 8
+Output: From 1 you can visit:
+	2,3,4,5,6,
+	The path from 1 to 5:
+	1->2->3->5
