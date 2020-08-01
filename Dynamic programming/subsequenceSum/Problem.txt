@@ -1,0 +1,21 @@
+Given an array with n (1<=n<=1000) integers and a positive integer k (k<=1000). Find length of the longest subsequence 
+whose sum is divisible by k, list all elements of that subsequence and the sum of that subsequence.
+
+Input: 
+- first line: n, k (seperated by a space)
+- second line: n integers
+Output:
+- first line: length of the longest subsequence whose sum is divisible by k
+- following lines: elements of the subsequence
+- last line: sum of that subsequence
+
+Example:
+Input:	6 3
+	8 4 10 13 5 7
+Output: 5
+	a[6] = 7
+	a[4] = 13
+	a[3] = 10
+	a[2] = 4
+	a[1] = 8
+	Sum: 42

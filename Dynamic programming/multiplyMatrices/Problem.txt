@@ -1,0 +1,21 @@
+Given a sequence of matrices, you have many options to multiply a chain of matrices because matrix multiplication
+is associative. The result will be the same but the number of operations need to be carried out in each way is 
+different.
+For example, given 4 matrices A(10x30), B(30x5), C(5x60). We can do the multiplication like:
+(AB)C = 10x30x5 + 10x5x60 = 4500 operations
+A(BC) = 30x5x60 + 10x30x60 = 27000 operations
+So we can see that the first combination is better.
+
+Input:
+- first line: n (<= 100)
+- second line: n+1 positive integers a[1], a[2],..., a[n+1] (1 <= a[i] <= 100). Matrix i has a 
+dimension of a[i] x a[i+1].
+
+Output: the least number of operations need to be carried out.
+
+Example:
+Input:	6
+	3 2 3 1 2 2 3
+Output: 31
+Explain: We have 6 matrices m1(3x2), m2(2x3), m3(3x1), m4(1x2), m5(2x2), m6(2x3)
+	 The order of multiplication is (m1.(m2.m3)).((m4.m5).m6))
