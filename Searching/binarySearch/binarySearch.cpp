@@ -11,7 +11,12 @@ int arr[MAX] = { 0 };
 // otherwise -1
 int binarySearch(int left, int right, int key)
 {
-	if (left <= right)
+	// If element is not found, return -1
+	if (left > right)
+	{
+		return -1;
+	}
+	else
 	{
 		int mid = (left + right) / 2;
 		// If the element is present at the middle
@@ -26,9 +31,6 @@ int binarySearch(int left, int right, int key)
 		else
 			return binarySearch(mid + 1, right, key);
 	}
-
-	// If element is not found, return -1
-	return -1;
 }
 
 int main()
