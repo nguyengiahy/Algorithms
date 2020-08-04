@@ -1,5 +1,4 @@
-// Use BFS to check the connectivity of graph
-#include <iostream>
+#include<iostream>
 using namespace std;
 
 int n, m;			// n: number of vertices, m: number of edges
@@ -9,7 +8,7 @@ bool visited[100];	// checking if a vertice has been visited or not
 // Get input
 void input()
 {
-	cin >> n >> m;		
+	cin >> n >> m;
 	// Initialise the adjacent matrix
 	for (int i = 1; i <= n; i++)
 	{
@@ -19,7 +18,7 @@ void input()
 				a[i][j] = false;
 			else
 				a[i][j] = true;
-		}	
+		}
 	}
 	// Initialise visited
 	for (int i = 1; i <= n; i++)
@@ -34,39 +33,29 @@ void input()
 	}
 }
 
-// Use BFS(i) to visit all reachable vertices from i
-void BFS(int i)
+void Warshall()
 {
-	int queue[100];
-	int front = 1, rear = 1;
-	queue[front] = i;				// Push first item to the queue
-	
-	while (front <= rear)
-	{
-		int u = queue[front++];		// Pop queue
-		visited[u] = true;			// Mark as visited
-		cout << u << ", ";			// Print
-		for (int v = 1; v <= n; v++)
-		{
-			if (a[u][v] && !visited[v])
-			{
-				queue[++rear] = v;	// Push v to queue
-			}
-		}
-	}
-}
+	// Warshall algorithm
+	for (int k = 1; k <= n; k++)
+		for (int u = 1; u <= n; u++)
+			for (int v = 1; v <= n; v++)
+				if (a[u][k] && a[k][v])
+					a[u][v] = true;
 
-// Print all connected components
-void solve()
-{
+	// Print all connected components
 	int count = 0;		// Number of connected components
-	for (int u = 1; u <= n; u++)
+	for (int i = 1; i <= n; i++)
 	{
-		if (!visited[u])
+		if (!visited[i])
 		{
 			count++;
-			cout << "Connected component " << count << ": " << endl;
-			BFS(u);
+			cout << "Connected component " << count << ":" << endl;
+			for (int j = 1; j <= n; j++)
+				if (a[i][j])
+				{
+					cout << j << ", ";
+					visited[j] = true;
+				}
 			cout << endl;
 		}
 	}
@@ -75,6 +64,6 @@ void solve()
 int main()
 {
 	input();
-	solve();
+	Warshall();
 	return 0;
 }
