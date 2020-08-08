@@ -33,3 +33,4 @@ Data structures and algorithm topics covered in this repository are:
 ## Team
 1. Hy Nguyen
 2. Thinh Ngo
+3. Long Nguyen
