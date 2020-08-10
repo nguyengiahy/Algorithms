@@ -20,7 +20,7 @@ Data structures and algorithm topics covered in this repository are:
 11. Dynamic programming.
 12. Graph (adjacency matrix, edge list, adjacency list).
 13. Graph search (DFS, BFS).
-14. Graph connectivity, Warshall algorithm.
+14. Graph connectivity, Warshall algorithm, Tarjan algorithm.
 15. Spanning tree, Kruskal, Prim.
 16. Path finding, Eulerian path, Hamiltonian path, Shortest path.
 17. Maximum Flow Problem, Ford-Fulkerson, Preflow-Push.
