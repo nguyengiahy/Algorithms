@@ -1,0 +1,36 @@
+Given a directed graph with N (<=100) vertices and M edges. Determine all strongly connected components 
+in the given graph
+
+Input:
+- first line: N, M
+- M following lines: each line contains 2 positive integers u, v representing there is an edge connects u to v.
+Output:
+- List all strongly connected components in the graph
+
+Example:
+Input:	
+11 15
+1 2
+1 8
+2 3
+3 4
+4 2
+4 5
+5 6
+6 7
+7 5
+8 9
+9 4
+9 10
+10 8
+10 11
+11 8
+Output:
+Component 1:
+7, 6, 5,
+Component 2:
+4, 3, 2,
+Component 3:
+11, 10, 9, 8,
+Component 4:
+1,
