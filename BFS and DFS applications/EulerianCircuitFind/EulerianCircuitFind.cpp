@@ -32,7 +32,6 @@ void DFS(int u)
 			a[u][v]--; a[v][u]--;		// Eliminate the edge
 			cout << v << " ";
 			DFS(v);
-			break;
 		}
 	}
 }
