@@ -1,0 +1,22 @@
+Given a directed graph with N (<=1000) vertices, M connections, source vertex s and destination vertex f.
+Find the shortest path to travel from s to f and the total distance of that path.
+
+Input: 
+- first line: N, M, s, f
+- M following lines: each line contains 3 positive integers u, v and weight of the edge connecting u and v.
+Output:
+- Shorstest path from s to f and the total distance of that path.
+
+Example:
+- Input: 
+6 7 1 4
+1 2 1
+1 6 20
+2 3 2
+3 6 3
+3 4 20
+5 4 5
+6 5 4
+- Output:
+Distance from 1 to 4: 15
+4<-5<-6<-3<-2<-1
