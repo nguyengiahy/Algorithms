@@ -1,0 +1,16 @@
+Given 2 strings A and B. Find the longest common substring.
+
+Example:
+Input:
+ABCB
+BCAB
+Output:
+3
+Explain: longest common substring is BCB => 3
+
+Example:
+Input:
+alice
+bob
+Output:
+0
