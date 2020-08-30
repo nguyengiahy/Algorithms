@@ -27,6 +27,7 @@ Data structures and algorithm topics covered in this repository are:
 18. Bipartite Graph.
 19. Hungarian algorithm.
 20. Edmonds algorithm, Lawler algorithm.
+21. Map, set, hash map, hash set.
 ```
 
 
