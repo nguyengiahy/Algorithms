@@ -1,6 +1,6 @@
 # Competitive Programming
 
-This repository is for our preparation and practice towards the ACM-ICPC contest which takes place in September 2020.
+This repository is for our preparation and practice towards the annual ACM-ICPC contest.
 
 ## Table of contents
 
@@ -31,6 +31,3 @@ Data structures and algorithm topics covered in this repository are:
 ```
 
 
-## Team
-1. Hy Nguyen
-2. Thinh Ngo
