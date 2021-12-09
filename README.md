@@ -30,4 +30,3 @@ Data structures and algorithm topics covered in this repository are:
 21. Map, set, hash map, hash set.
 ```
 
-
