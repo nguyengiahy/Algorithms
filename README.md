@@ -29,4 +29,3 @@ Data structures and algorithm topics covered in this repository are:
 20. Edmonds algorithm, Lawler algorithm.
 21. Map, set, hash map, hash set.
 ```
-
